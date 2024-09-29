@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicons -->
+    <link href="#" rel="icon">
+    <link href="#" rel="apple-touch-icon">
+
+    <!-- Vendor CSS Files -->
+    <link href="public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="public/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="public/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="public/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <header id="header" class="fixed-top">
+        <nav class="navbar navbar-expand-sm container">
+            <div class="container-xl">
+                <a class="navbar-brand" href="#">
+                    <h1>Título</h1>
+                </a>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavId">
+                    <ul class="navbar-nav">
+                        <li class="px-2"><a class="nav-link" href="#hero" class="active">Home</a></li>
+                        <li class="px-2"><a class="nav-link" href="#about">About</a></li>
+                        <li class="px-2"><a class="nav-link" href="#services">Servicios</a></li>
+                        <li class="px-2"><a class="nav-link" href="#team">Equipo</a></li>
+                        <li class="px-2"><a class="nav-link" href="#pricing">Pricing</a></li>
+                        <li class="d-flex align-items-center"><a class="nav-link-btn" href="">Get started</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+
+        </section>
+        <section id="clients">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    <div class="swiper-slide">Slide 4</div>
+                </div>
+            </div>
+
+            <!-- Scripts de Swiper -->
+            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+            <!-- Iniciar Swiper -->
+            <script>
+                const swiper = new Swiper('.swiper-container', {
+                    // Configuración
+                    loop: true, // Hace que los slides se repitan en bucle
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    autoplay: {
+                        delay: 3000, // Cambia de slide automáticamente cada 3 segundos
+                    },
+                });
+            </script>
+        </section>
+    </main>
+</body>
+
+</html>
