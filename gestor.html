@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD LocalStorage</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="mb-4">Guardar datos en LocalStorage</h1>
+    
+    <!-- Formulario -->
+    <form id="dataForm" class="mb-4">
+      <div class="mb-3">
+        <label for="empresa" class="form-label">Empresa</label>
+        <input type="text" class="form-control" id="empresa" required>
+      </div>
+      <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha</label>
+        <input type="date" class="form-control" id="fecha" required>
+      </div>
+      <div class="mb-3">
+        <label for="pais" class="form-label">País</label>
+        <input type="text" class="form-control" id="pais" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+
+    <!-- Sección para mostrar las tarjetas -->
+    <div class="row" id="cardContainer"></div>
+  </div>
+
+  <script>
+    // Clase para manejar operaciones CRUD en LocalStorage
+    class StorageManager {
+      constructor(key) {
+        this.key = key;
+      }
+
+      // Obtener todos los registros
+      getAll() {
+        return JSON.parse(localStorage.getItem(this.key)) || [];
+      }
+
+      // Guardar un nuevo registro
+      save(data) {
+        const items = this.getAll();
+        items.push(data);
+        localStorage.setItem(this.key, JSON.stringify(items));
+      }
+
+      // Eliminar un registro por índice
+      delete(index) {
+        const items = this.getAll();
+        items.splice(index, 1);
+        localStorage.setItem(this.key, JSON.stringify(items));
+      }
+    }
+
+    // Instancia de la clase
+    const storage = new StorageManager('records');
+
+    // Referencia al contenedor de tarjetas
+    const cardContainer = document.getElementById('cardContainer');
+
+    // Función para crear tarjetas dinámicamente
+    function displayCards() {
+      cardContainer.innerHTML = '';
+      const items = storage.getAll();
+      items.forEach((item, index) => {
+        cardContainer.innerHTML += `
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">${item.empresa}</h5>
+                <p class="card-text"><strong>Fecha:</strong> ${item.fecha}</p>
+                <p class="card-text"><strong>País:</strong> ${item.pais}</p>
+                <button class="btn btn-danger" onclick="deleteRecord(${index})">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Función para eliminar un registro
+    function deleteRecord(index) {
+      storage.delete(index);
+      displayCards(); // Actualizar la vista
+    }
+
+    // Manejar el envío del formulario
+    document.getElementById('dataForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Obtener los valores del formulario
+      const empresa = document.getElementById('empresa').value;
+      const fecha = document.getElementById('fecha').value;
+      const pais = document.getElementById('pais').value;
+      
+      // Crear un objeto de datos
+      const newData = { empresa, fecha, pais };
+      
+      // Guardar los datos en LocalStorage
+      storage.save(newData);
+      
+      // Limpiar el formulario
+      this.reset();
+
+      // Actualizar la lista de tarjetas
+      displayCards();
+    });
+
+    // Mostrar las tarjetas al cargar la página
+    document.addEventListener('DOMContentLoaded', displayCards);
+  </script>
+</body>
+</html>
