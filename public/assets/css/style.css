@@ -40,22 +40,20 @@ body {
     color: #7e7e7e;
     padding: 2rem;
 }
-
 header {
     color: var(--default-color);
     background-color: var(--background-color-primary);
     padding: 15px 0;
     transition: all 0.5s;
-    z-index: 997;
+    z-index: 3;
 }
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    color: var(--color-light);
+    color: var(--color-primary);
     font-family: var(--heading-font);
 }
 h1 {
@@ -65,7 +63,6 @@ h1 {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-
 a.nav-link {
     font-family: var(--heading-font);
     color: var(--color-light);
@@ -73,15 +70,12 @@ a.nav-link {
     font-size: 15px;
     transition: .3s;
 }
-
 .nav-link.active-custom {
     color: var(--nav-hover-color);
 }
-
 .nav-link:hover {
     color: var(--nav-hover-color) !important;
 }
-
 .nav-link-btn {
     all: unset;
     background-color: var(--accent-color);
@@ -104,10 +98,9 @@ main {
 .hero {
     background-color: var(--hero-background-color);
     width: 100%;
-    min-height: 80vh;
-    padding: 120px 0 60px;
     display: flex;
     align-items: center;
+    padding: 2rem 4rem;
 }
 
 .hero h1 {
