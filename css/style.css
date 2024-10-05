@@ -40,6 +40,7 @@ body {
     color: #7e7e7e;
     padding: 2rem;
 }
+
 header {
     color: var(--default-color);
     background-color: var(--background-color-primary);
@@ -47,6 +48,7 @@ header {
     transition: all 0.5s;
     z-index: 3;
 }
+
 h1,
 h2,
 h3,
@@ -56,6 +58,7 @@ h6 {
     color: var(--color-primary);
     font-family: var(--heading-font);
 }
+
 h1 {
     font-size: 30px;
     margin: 0;
@@ -63,6 +66,7 @@ h1 {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+
 a.nav-link {
     font-family: var(--heading-font);
     color: var(--color-light);
@@ -70,12 +74,15 @@ a.nav-link {
     font-size: 15px;
     transition: .3s;
 }
+
 .nav-link.active-custom {
     color: var(--nav-hover-color);
 }
+
 .nav-link:hover {
     color: var(--nav-hover-color) !important;
 }
+
 .nav-link-btn {
     all: unset;
     background-color: var(--accent-color);
