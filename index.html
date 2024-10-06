@@ -19,12 +19,11 @@
     <link href="#" rel="apple-touch-icon">
 
     <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="./js/plugins/swiper/swiper.min.css">
-    <script src="./js/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="./js/plugins/swiper/swiper.min.js"></script>
-    <script src="./js/index.js" type="module"></script>
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./public/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/js/plugins/swiper/swiper.min.css">
+    <script src="./public/js/plugins/swiper/swiper.min.js"></script>
+    <script src="./public/js/index.js" type="module"></script>
 </head>
 
 <body>
@@ -82,9 +81,9 @@
                 </div>
             </div>
         </section>
-        <section id="about" class="my-4">
+        <section id="about" class="py-5">
             <div class="text-center" data-aos="fade-up">
-                <h2 class="text-primary">About Us</h2>
+                <h2>About Us</h2>
             </div>
             <div class="container">
                 <div class="row gy-4">
@@ -133,7 +132,7 @@
                 </div>
             </div>
         </section>
-        <section id="services" class="bg-light py-4">
+        <section id="services" class="py-5">
             <div class="text-center">
                 <h2>Services</h2>
                 <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
@@ -181,15 +180,25 @@
                 </div>
             </div>
         </section>
+        <section id="contact">
+            <div class="py-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <iframe id="contact-map" class="w-100"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2949.464076571462!2d-16.25215938474395!3d28.463772121894543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cb000131a0d1%3A0xc38c1926e74a37c!2sBageri%20Santa%20Cruz!5e0!3m2!1sen!2ses!4v1728203806675!5m2!1sen!2ses"
+                            style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="col-md-6"></div>
+                </div>
+            </div>
+        </section>
         <section id="game-container" class="d-none d-flex justify-content-center"></section>
         <section>
-            <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-title="Disabled tooltip">
-                <button class="btn btn-primary" type="button" disabled>Disabled button</button>
-            </span>
         </section>
     </main>
-
-    <!--script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script-->
+    <script src="public/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="public/js/plugins/bootstrap/popper.min.js"></script>
 </body>
 
 </html>
