@@ -80,7 +80,7 @@ window.addEventListener('load', function () {
 
     loading();
 
-    setTimeout(() => loaded(), 100);
+    setTimeout(() => loaded(), 1500);
 
     const swiper = new Swiper('.swiper-container', {
         loop: true,  
