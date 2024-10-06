@@ -75,7 +75,7 @@ window.addEventListener('load', function () {
 
     setTimeout(() => loaded(), 2000);
 
-    /*const swiper = new Swiper('.swiper-container', {
+    const swiper = new Swiper('.swiper-container', {
         loop: true,  
         slidesPerView: 5,  
         spaceBetween: 30,
@@ -84,6 +84,6 @@ window.addEventListener('load', function () {
             el: '.swiper-pagination',
             clickable: true,
         },
-    });*/
+    });
 });
 
