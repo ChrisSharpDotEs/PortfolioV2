@@ -6,7 +6,6 @@ class CircularProgressBar {
         this.strokeWidth = strokeWidth;
         this.progress = 0;
 
-        // Inicializar el escenario y la capa
         this.stage = new Konva.Stage({
             container: containerId,
             width: this.width,
@@ -15,34 +14,42 @@ class CircularProgressBar {
         this.layer = new Konva.Layer();
         this.stage.add(this.layer);
 
-        // Crear fondo de la barra de progreso
         this.backgroundCircle = new Konva.Circle({
             x: this.width / 2,
             y: this.height / 2,
             radius: this.radius,
-            fill: '#e0e0e0', // Color de fondo
+            fill: '#fff',
         });
         this.layer.add(this.backgroundCircle);
 
-        // Crear el arco de la barra de progreso
         this.progressArc = new Konva.Arc({
             x: this.width / 2,
             y: this.height / 2,
             innerRadius: this.radius - this.strokeWidth,
             outerRadius: this.radius,
-            angle: 0, // Inicia en 0 grados
-            fill: '#76c7c0', // Color de la barra de progreso
+            angle: 0,
+            fill: '#76c7c0',
             strokeWidth: 2,
         });
+        this.progressText = new Konva.Text({
+            x: 0,
+            y: this.height / 2 - 15,
+            width: this.width,
+            align: 'center',
+            text: 'loading...',
+            fontSize: 30,
+            fontFamily: 'Arial',
+            fill: '#76c7c0'
+        });
         this.layer.add(this.progressArc);
+        this.layer.add(this.progressText);
 
-        // Iniciar el temporizador para actualizar la barra de progreso
         this.interval = setInterval(() => this.updateProgress(), 10);
         this.layer.draw();
     }
     updateProgress() {
-        this.progress += 1; // Incrementar el progreso
-        this.progressArc.angle(this.progress * 3.6); // Convertir el progreso a grados (360 / 100)
+        this.progress += 1;
+        this.progressArc.angle(this.progress * 3.6);
 
         this.layer.batchDraw();
 
@@ -73,7 +80,7 @@ window.addEventListener('load', function () {
 
     loading();
 
-    setTimeout(() => loaded(), 2000);
+    setTimeout(() => loaded(), 100);
 
     const swiper = new Swiper('.swiper-container', {
         loop: true,  

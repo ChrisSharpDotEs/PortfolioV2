@@ -25,11 +25,6 @@
     <script src="./public/js/plugins/swiper/swiper.min.js"></script>
     <script src="./public/js/index.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/konva@8.2.2/konva.min.js"></script>
-    <style>
-        canvas {
-            border: 1px solid black;
-        }
-    </style>
 </head>
 
 <body>
@@ -48,14 +43,11 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavId">
                         <ul class="navbar-nav">
-                            <li class="px-2"><a class="nav-link" href="#hero" class="active">Home</a></li>
+                            <li class="px-2"><a class="nav-link" href="index.html" class="active">Home</a></li>
                             <li class="px-2"><a class="nav-link" href="#about">About</a></li>
-                            <li class="px-2"><a class="nav-link" href="#services">Servicios</a></li>
+                            <li class="px-2"><a class="nav-link" href="services.html">Servicios</a></li>
                             <li class="px-2"><a class="nav-link" href="#team">Equipo</a></li>
                             <li class="px-2"><a class="nav-link" href="#pricing">Pricing</a></li>
-                            <li class="d-flex align-items-center"><a class="nav-link-btn" href="gestor.html">Get
-                                    started</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -103,23 +95,23 @@
                                 labore et dolore
                                 magna aliqua.
                             </p>
-                            <ul>
+                            <ul class="p-2">
                                 <li>
-                                    <i class="bi bi-check2-circle"></i>
+                                    <img src="./public/media/check2-circle.svg" alt="">
                                     <span>
                                         Ullamco laboris nisi ut aliquip ex ea commodo
                                         consequat.
                                     </span>
                                 </li>
                                 <li>
-                                    <i class="bi bi-check2-circle"></i>
+                                    <img src="./public/media/check2-circle.svg" alt="">
                                     <span>
                                         Duis aute irure dolor in reprehenderit in
                                         voluptate velit.
                                     </span>
                                 </li>
                                 <li>
-                                    <i class="bi bi-check2-circle"></i>
+                                    <img src="./public/media/check2-circle.svg" alt="">
                                     <span>
                                         Ullamco laboris nisi ut aliquip ex ea commodo
                                     </span>
@@ -135,9 +127,13 @@
                                 occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
                                 laborum.
                             </p>
-                            <a href="#" class="btn btn-outline-primary">
+                            <a href="#" class="btn btn-outline-success">
                                 <span>Read More</span>
-                                <i class="bi bi-arrow-right"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                </svg>
                             </a>
                         </div>
                     </div>
@@ -154,7 +150,6 @@
                             <div class="shadow-sm p-4 bg-white" style="min-height: 15rem;">
                                 <div class="card-body">
                                     <div class="icon fs-3 text-primary">
-                                        <i class="bi bi-activity icon"></i>
                                     </div>
                                     <h4>Lorem Ipsum</h4>
                                     <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
@@ -164,7 +159,6 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="shadow-sm p-4 bg-white" style="min-height: 15rem;">
                                 <div class="icon fs-3 text-primary">
-                                    <i class="bi bi-bounding-box-circles icon"></i>
                                 </div>
                                 <h4>Sed ut perspici</h4>
                                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
@@ -173,7 +167,6 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="shadow-sm p-4 bg-white" style="min-height: 15rem;">
                                 <div class="icon fs-3 text-primary">
-                                    <i class="bi bi-calendar4-week icon"></i>
                                 </div>
                                 <h4>Magni Dolores</h4>
                                 <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
@@ -182,7 +175,6 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="shadow-sm p-4 bg-white" style="min-height: 15rem;">
                                 <div class="icon fs-3 text-primary">
-                                    <i class="bi bi-broadcast icon"></i>
                                 </div>
                                 <h4>Nemo Enim</h4>
                                 <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
@@ -195,12 +187,26 @@
                 <div class="py-4">
                     <div class="row">
                         <div class="col-md-6">
-                            <iframe id="contact-map" class="w-100"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2949.464076571462!2d-16.25215938474395!3d28.463772121894543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cb000131a0d1%3A0xc38c1926e74a37c!2sBageri%20Santa%20Cruz!5e0!3m2!1sen!2ses!4v1728203806675!5m2!1sen!2ses"
-                                style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="p-3">
+                                <div class="border-top border-5 border-success">
+                                    <iframe id="contact-map" class="w-100"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2949.464076571462!2d-16.25215938474395!3d28.463772121894543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cb000131a0d1%3A0xc38c1926e74a37c!2sBageri%20Santa%20Cruz!5e0!3m2!1sen!2ses!4v1728203806675!5m2!1sen!2ses"
+                                        style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <div class="p-3">
+                                <div class="border-top border-success border-5">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Email</label>
+                                        <input type="email" class="form-control" name="" id=""
+                                            aria-describedby="emailHelpId" placeholder="abc@mail.com" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

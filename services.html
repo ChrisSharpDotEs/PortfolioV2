@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCompany | Servicios</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicons -->
+    <link href="#" rel="icon">
+    <link href="#" rel="apple-touch-icon">
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./public/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./public/js/plugins/swiper/swiper.min.css">
+    <script src="./public/js/plugins/swiper/swiper.min.js"></script>
+    <script src="./public/js/index.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/konva@8.2.2/konva.min.js"></script>
+</head>
+
+<body>
+    <header id="header" class="sticky-top">
+        <nav class="navbar navbar-expand-md container">
+            <div class="container-xl">
+                <a class="navbar-brand" href="#">
+                    <h1 class="text-light">Título</h1>
+                </a>
+                <button class="navbar-toggler d-lg-none border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavId">
+                    <ul class="navbar-nav">
+                        <li class="px-2"><a class="nav-link" href="index.html" class="active">Home</a></li>
+                        <li class="px-2"><a class="nav-link" href="#about">About</a></li>
+                        <li class="px-2"><a class="nav-link" href="services.html">Servicios</a></li>
+                        <li class="px-2"><a class="nav-link" href="#team">Equipo</a></li>
+                        <li class="px-2"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="container my-4">
+                <div class="border rounded p-4">
+                    <div class="mb-3">
+                        <label for="tree" class="form-label">Árbol</label>
+                        <select class="form-select" name="tree" id="tree">
+                            <option selected>Selecciona un árbol...</option>
+                            <option value="75">Naranjo</option>
+                            <option value="45">Olivo</option>
+                            <option value="98">Aguacate</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="area" class="form-label">Área en metros cuadrados</label>
+                        <input type="number" class="form-control" name="area" id="area">
+                    </div>
+                    <div class="mb-3">
+                        <label for="needs" class="form-label">Necesidaded de riego en metros cúbicos por semana</label>
+                        <input class="form-control" type="text" name="needs" id="needs" readonly disabled>
+                        <small class="help-text">Los valores son orientativos y dependen de la climatología y estado del árbol</small>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <script>
+        document.getElementById('tree').addEventListener('change', (e) => {
+            let arbol =  e.currentTarget.value;
+            let area = document.getElementById('area').value;
+            document.getElementById('needs').value = arbol * area + " litros por semana.";
+        });
+        document.getElementById('area').addEventListener('change', (e) => {
+            let arbol = document.getElementById('tree').value;
+            let area = e.currentTarget.value;
+            document.getElementById('needs').value = arbol * area + " litros por semana.";
+        })
+    </script>
+    <script src="public/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="public/js/plugins/bootstrap/popper.min.js"></script>
+</body>
+
+</html>

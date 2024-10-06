@@ -29,6 +29,9 @@ body {
     height: 100%;
     overflow-x: hidden;
 }
+ul > li {
+    list-style: none;
+}
 
 .navbar-collapse {
     transition: 0.5s ease !important;
