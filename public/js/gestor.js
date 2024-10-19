@@ -24,73 +24,68 @@ class StorageManager {
     }
 }
 
+class MiniQuery {
+    constructor(element, attributes = {}) {
+        this.el = document.createElement(element);
+
+        for (let attr in attributes) {
+            this.el.setAttribute(attr, attributes[attr]);
+        }
+    }
+    append(...children) {
+        children.forEach(child => {
+            if (child instanceof MiniQuery) {
+                this.el.appendChild(child.el);
+            } else if (child instanceof HTMLElement) {
+                this.el.appendChild(child);
+            }
+        });
+        return this;
+    }
+    text(text) {
+        this.el.append(text);
+        return this;
+    }
+    on(event, callback) {
+        this.el.addEventListener(event, callback);
+        return this;
+    }
+
+    get() {
+        return this.el;
+    }
+}
+
+function $(element, attributes) {
+    return new MiniQuery(element, attributes);
+}
+
 class CardBuilder {
-    constructor(storage, cardContainer){
+    constructor(storage, cardContainer) {
         this.storage = storage;
         this.cardContainer = cardContainer;
     }
     displayCards() {
         let that = this;
-        function createElement(element, index, clases, content){
-            let result = document.createElement(element);
-            clases.forEach(item => result.classList.add(item));
-            if(Array.isArray(content)){
-                content.forEach(item => result.append(item))
-            } else {
-                result.append(content);
-            }
-            if(element == 'button' && clases.includes('btn-outline-danger')){
-                result.addEventListener('click', () => {
-                    that.deleteRecord(index);
-                });
-            }
-            return result;
-        }
+        
         this.cardContainer.innerHTML = '';
         const items = this.storage.getAll();
         items.forEach((item, index) => {
-            this.cardContainer.append(
-                createElement(
-                    'div',
-                    0,
-                    ['mb-4'], 
-                    createElement(
-                        'div', 
-                        0,
-                        ['card'], 
-                        createElement(
-                            'div', 
-                            0,
-                            ['card-body'],
-                            [
-                                createElement(
-                                    'h5',
-                                    0,
-                                    ['card-title'],
-                                    item.empresa
-                                ),
-                                createElement(
-                                    'p',
-                                    0,
-                                    ['card-text'],
-                                    `Fecha: ${item.fecha}`
-                                ),
-                                createElement(
-                                    'p',
-                                    0,
-                                    ['card-text'],
-                                    `País: ${item.pais}`
-                                ),
-                                createElement(
-                                    'button',
-                                    index,
-                                    ['btn', 'btn-outline-danger'],
-                                    `Eliminar`
-                                ),
-                            ]
+            this.cardContainer.appendChild(
+                $('div', {class:'mb-4'}).append(
+                    $('div', {class: 'card'}).append(
+                        $('div', {class: 'card-body'}).append(
+                            $('h5', {class: 'card-title'}).text(item.empresa),
+                            $('p', {class: 'card-text'}).text(`Fecha: ${item.fecha}`),
+                            $('h5', {class: 'card-text'}).text(item.pais),
+                            $('div', {class: ''}).append(
+                                $('button', {class:'btn btn-outline-danger', 'data-id': index}).text('Eliminar').on('click', () =>{
+                                    this.deleteRecord(index);
+                                })
+                            )
                         )
                     )
-                )
+                ).get()
             );
         });
     }
