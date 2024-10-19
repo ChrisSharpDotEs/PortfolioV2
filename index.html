@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="./public/css/style.css">
     <link rel="stylesheet" href="./public/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="./public/js/plugins/swiper/swiper.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="./public/js/plugins/swiper/swiper.min.js"></script>
     <script src="./public/js/index.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/konva@8.2.2/konva.min.js"></script>
@@ -54,21 +55,23 @@
             </nav>
         </header>
         <main>
-            <section class="container py-5">
-                <div class="row justify-content-center align-items-center">
-                    <article class="col-md-6 my-3">
-                        <h1 class="display-4 mb-4">¡Bienvenido a mi web!</h1>
-                        <p>
-                            Explora nuestro contenido exclusivo y disfruta de todas
-                            las funcionalidades que tenemos para ofrecer.
-                        </p>
-                        <div class="d-flex">
-                            <a class="nav-link-btn" href="gestor.html">Get started</a>
-                        </div>
-                    </article>
-                    <article class="col-md-6 my-3 text-center">
-                        <img class="img-fluid rounded" src="./public/media/imghero.png" alt="">
-                    </article>
+            <section class="hero py-5">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <article class="col-md-6 my-3">
+                            <h1 class="display-4 mb-4">¡Bienvenido a mi web!</h1>
+                            <p>
+                                Explora nuestro contenido exclusivo y disfruta de todas
+                                las funcionalidades que tenemos para ofrecer.
+                            </p>
+                            <div class="d-flex">
+                                <a class="nav-link-btn" href="gestor.html">Get started</a>
+                            </div>
+                        </article>
+                        <article class="col-md-6 my-3 text-center">
+                            <img class="img-fluid rounded" src="./public/media/imghero.png" alt="">
+                        </article>
+                    </div>
                 </div>
             </section>
             <section id="clients">
@@ -86,8 +89,9 @@
                 </div>
             </section>
             <section id="about" class="py-5">
-                <div class="text-center" data-aos="fade-up">
-                    <h2>About Us</h2>
+                <div class="container text-center mb-4" data-aos="fade-up">
+                    <h2>Un poco de mí</h2>
+                    <hr>
                 </div>
                 <div class="container">
                     <div class="row gy-4">
@@ -143,8 +147,9 @@
                 </div>
             </section>
             <section id="services" class="py-5">
-                <div class="text-center">
+                <div class="container text-center mb-4">
                     <h2>Services</h2>
+                    <hr>
                     <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
                 </div>
                 <div class="container my-3">
@@ -156,8 +161,8 @@
                                     </div>
                                     <h4>Desarrollo web</h4>
                                     <p>
-                                        Puedo ayudarte a crear una web a medida ya sea páginas web personalizadas,
-                                        blogs, aplicaciones web o aplicaciones empresariales.
+                                        Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur
+                                        velit
                                     </p>
                                 </div>
                             </div>
@@ -168,9 +173,7 @@
                                 </div>
                                 <h4>Desarrollo backend</h4>
                                 <p>
-                                    Puedo ayudarte a mantener tu servicio de backend, optimizándolo y notificando
-                                    aquellos problemas que puedo encontrar y que puedan perjudicar el rendimiento,
-                                    mantenimiento o seguridad de tu servicio.
+                                    Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
                                 </p>
                             </div>
                         </div>
@@ -190,9 +193,8 @@
                                 </div>
                                 <h4>Desarrollo de aplicaciones de escritorio</h4>
                                 <p>
-                                    Con mis conocimientos en Java puedo crear, mantener una aplicación de escritorio
-                                    con el que podrás automatizar los procesos en tu negocio dejandote más tiempo para
-                                    otras cuestiones.
+                                    Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit.
+                                    Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
                                 </p>
                             </div>
                         </div>
@@ -242,13 +244,19 @@
                                                     <textarea class="form-control" id="message" rows="5"
                                                         placeholder="Escribe tu mensaje" required></textarea>
                                                 </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="privacy" name="privacy" required/>
+                                                <div class="form-check my-4">
+                                                    <input class="form-check-input" type="checkbox" id="privacy"
+                                                        name="privacy" required />
                                                     <label class="form-check-label" for="privacy">
-                                                        Acepta nuestra <a href="./privacidad.html">Política de Privacidad</a> y <a href="./condiciones.html">Términos de condiciones y uso</a>.
+                                                        Acepta nuestra <a href="./privacidad.html">Política de
+                                                            Privacidad</a> y <a href="./condiciones.html">Términos de
+                                                            condiciones y uso</a>.
                                                     </label>
                                                 </div>
-                                                <button type="submit" class="btn btn-outline-success">Enviar</button>
+                                                <div class="my-4 text-end">
+                                                    <button type="submit"
+                                                        class="btn btn-outline-success">Enviar</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -260,7 +268,17 @@
             </section>
             <section id="game-container" class="d-none d-flex justify-content-center"></section>
         </main>
-        <footer></footer>
+        <footer class="py-3 bg-custom-secondary">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+            </ul>
+            <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+        </footer>
+
         <script src="public/js/plugins/bootstrap/bootstrap.min.js"></script>
         <script src="public/js/plugins/bootstrap/popper.min.js"></script>
     </div>

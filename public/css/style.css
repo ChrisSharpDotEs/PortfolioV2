@@ -51,7 +51,7 @@ h1 {
 h2, h3 {
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--ct-color-primary) !important;
+    color: var(--ct-color-dark) !important;
 }
 
 h4, h5 {
@@ -146,9 +146,6 @@ main {
 
 .hero p {
     color: var(--ct-accent-color);
-    margin: 5px 0 30px;
-    font-size: 22px;
-    line-height: 1.3;
     font-weight: 600;
 }
 .hero img {
@@ -193,4 +190,13 @@ main {
 }
 .shadow-sm.p-4.bg-white {
     min-height: 20rem;
+}
+
+footer .link {
+    all: unset;
+    cursor: pointer;
+}
+
+.bg-custom-secondary {
+    background-color: var(--ct-bg-grey);
 }
