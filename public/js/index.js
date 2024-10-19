@@ -78,13 +78,19 @@ function loaded() {
 
 window.addEventListener('load', function () {
 
-    loading();
+    if (!localStorage.getItem("load-info")) {
+        localStorage.setItem('load-info', '{loaded: true}');
+        loading();
+        setTimeout(() => loaded(), 1500);
 
-    setTimeout(() => loaded(), 1500);
+    } else {
+        loaded();
+    }
+
 
     const swiper = new Swiper('.swiper-container', {
-        loop: true,  
-        slidesPerView: 5,  
+        loop: true,
+        slidesPerView: 5,
         spaceBetween: 30,
         slidesPerGroup: 1,
         pagination: {
