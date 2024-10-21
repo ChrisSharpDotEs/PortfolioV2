@@ -187,11 +187,20 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: center;
+    background-position-x: center;
 }
 .shadow-sm.p-4.bg-white {
-    min-height: 20rem;
+    min-height: 25rem;
 }
-
+.custom-card {
+    cursor: pointer;
+}
+.custom-card:hover {
+    scale: 110%;
+}
+.bg-light-success {
+    background-color: var(--ct-bg-primary-light);
+}
 footer .link {
     all: unset;
     cursor: pointer;
@@ -199,4 +208,7 @@ footer .link {
 
 .bg-custom-secondary {
     background-color: var(--ct-bg-grey);
+}
+.bg-custom-danger {
+    background-color: rgb(247, 192, 192);
 }
