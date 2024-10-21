@@ -61,7 +61,51 @@ class CircularProgressBar {
         clearInterval(this.interval);
     }
 }
+class FormManager {
+    constructor(id){
+        this.form = document.getElementById(id);
+    }
 
+    handle(){
+        this.form.addEventListener('submit', (e) =>{
+            e.preventDefault();
+            const formData = new FormData(this.form);
+            let counter = 0;
+
+            formData.forEach((value, key) => {
+                if(value != ""){
+                    counter++;
+                }
+            });
+
+            if(counter == 5){
+                this.showSuccessMessage();
+            } else {
+                this.showFailMessage();
+            }
+        });
+        document.getElementById('form-reset').addEventListener('click', (e) =>{
+            document.getElementById('result-message').innerHTML = '';
+        });
+    }
+    showSuccessMessage() {
+        document.getElementById('result-message').innerHTML = `
+            <p class="border border-success rounded bg-light-success p-4">
+                ¡Enhorabuena has rellenado el formulario correctamente!
+            </p>
+        `;
+    }
+    showFailMessage() {
+        document.getElementById('result-message').innerHTML = `
+            <p class="border border-danger rounded bg-light-danger p-4">
+                ¡Vaya, no has rellenado el formulario correctamente!
+            </p>
+        `;
+    }
+    clear(){
+        //TODO
+    }
+}
 function loading() {
     let main = document.getElementById('main-wrapper');
     main.style.display = 'none';
@@ -87,6 +131,7 @@ window.addEventListener('load', function () {
         loaded();
     }
 
+    let form = new FormManager('contact-form').handle();
 
     const swiper = new Swiper('.swiper-container', {
         loop: true,
