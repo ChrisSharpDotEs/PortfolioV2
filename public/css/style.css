@@ -31,6 +31,7 @@ body {
     height: 100%;
     overflow-x: hidden;
 }
+
 h1,
 h2,
 h3,
@@ -48,19 +49,21 @@ h1 {
     text-transform: uppercase;
 }
 
-h2, h3 {
+h2,
+h3 {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--ct-color-dark) !important;
 }
 
-h4, h5 {
+h4,
+h5 {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--ct-color-secondary) !important;
 }
 
-ul > li {
+ul>li {
     list-style: none;
 }
 
@@ -148,6 +151,7 @@ main {
     color: var(--ct-accent-color);
     font-weight: 600;
 }
+
 .hero img {
     max-width: 30rem;
     position: relative;
@@ -155,10 +159,19 @@ main {
     animation-iteration-count: 5;
 
 }
+
 @keyframes hop {
-    0%{top: 0px;}
-    50%{top: 5px;}
-    100%{top: 0px;}
+    0% {
+        top: 0px;
+    }
+
+    50% {
+        top: 5px;
+    }
+
+    100% {
+        top: 0px;
+    }
 }
 
 #contact-map {
@@ -181,6 +194,7 @@ main {
 #services {
     background-color: var(--ct-bg-primary-light);
 }
+
 .img-container {
     height: 16rem;
     width: 25rem;
@@ -189,18 +203,23 @@ main {
     background-position-y: center;
     background-position-x: center;
 }
+
 .shadow-sm.p-4.bg-white {
     min-height: 25rem;
 }
+
 .custom-card {
     cursor: pointer;
 }
+
 .custom-card:hover {
     scale: 110%;
 }
+
 .bg-light-success {
     background-color: var(--ct-bg-primary-light);
 }
+
 footer .link {
     all: unset;
     cursor: pointer;
@@ -209,6 +228,77 @@ footer .link {
 .bg-custom-secondary {
     background-color: var(--ct-bg-grey);
 }
+
 .bg-custom-danger {
     background-color: rgb(247, 192, 192);
+}
+
+#datepicker {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    border: 2px solid #007bff;
+    color: #333;
+}
+
+.datepicker-dropdown {
+    background-color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+}
+
+.datepicker table tr td.active {
+    background-color: #28a745 !important;
+    color: white !important;
+}
+
+.datepicker table tr td.disabled,
+.datepicker table tr td.disabled:hover {
+    background-color: #e9ecef;
+    color: #6c757d;
+}
+
+.daterangepicker>div.drp-calendar {
+    max-width: none;
+}
+
+.daterangepicker .calendar-table tr th,
+.daterangepicker .calendar-table tr td,
+.datepicker table tr td,
+.datepicker table tr th {
+    width: 3rem;
+    height: 3rem;
+}
+
+@media (max-width: 561px) {
+    .drp-calendar {
+        width: 100%;
+    }
+    .daterangepicker {
+        direction: ltr;
+        text-align: left;
+        width: 93% !important;
+        right: 4rem !important;
+    }
+}
+@media (min-width: 561px) and (max-width: 768px) {
+    .drp-calendar {
+        width: 100%;
+    }
+    .daterangepicker {
+        direction: ltr;
+        text-align: left;
+        width: 75% !important;
+        right: 4rem !important;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px){
+    .drp-calendar {
+        width: 100%;
+    }
+    .daterangepicker {
+        direction: ltr;
+        text-align: left;
+        width: 55% !important;
+        right: 4rem !important;
+    }
 }
