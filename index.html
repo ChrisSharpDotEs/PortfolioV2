@@ -26,6 +26,8 @@
     <script src="./public/js/plugins/swiper/swiper.min.js"></script>
     <script src="./public/js/index.js" type="module"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/konva@8.2.2/konva.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -62,12 +64,12 @@
                         </article>
                         <article class="col-lg-6 my-3 px-5">
                             <h1 class="display-3 mb-4">¡Bienvenido a mi web!</h1>
-                            <p class="fs-3 text-primary mb-4">
+                            <p class="fs-3 text-success mb-4">
                                 Explora mi contenido y conocerás un poco acerca de mis habilidades en
                                 HTML, CSS y JavaScript.
                             </p>
                             <div class="d-flex">
-                                <a class="btn btn-outline-primary" href="#ejemplos" style="border-radius: 2rem;">Get
+                                <a class="btn btn-outline-success" href="#ejemplos" style="border-radius: 2rem;">Get
                                     started</a>
                             </div>
                         </article>
@@ -88,28 +90,27 @@
                     </div>
                 </div>
             </section>
-            <section id="about" class="py-5 px-4">
-                <div class="border rounded p-5 bg-white">
-                    <div class="container text-center mb-4" data-aos="fade-up">
-                        <h2>Un poco de mí</h2>
-                        <hr>
+            <section id="about" class="py-2 px-2 bg-light">
+                <div class="rounded px-2 bg-white">
+                    <div class="text-center py-3">
+                        <h3 class="border-bottom py-2">Un poco de mí</h3>
                     </div>
-                    <div class="container">
+                    <div class="container-fluid">
                         <div class="row gy-4">
                             <div class="col">
-                                <div class="text-center border-bottom mb-4 py-3">
+                                <div class="text-center border-bottom mb-4 py-2">
                                     <h5>Calidad inherente</h5>
                                     <p>Franqueza e innovación</p>
                                 </div>
-                                <div class="text-center border-bottom mb-4 py-3">
+                                <div class="text-center border-bottom mb-4 py-2">
                                     <h5>Competencia</h5>
                                     <p>Liderazgo</p>
                                 </div>
-                                <div class="text-center border-bottom mb-4 py-3">
+                                <div class="text-center border-bottom mb-4 py-2">
                                     <h5>Qué me motiva</h5>
                                     <p>Sostenibilidad, buen entorno de trabajo</p>
                                 </div>
-                                <div class="text-center border-bottom mb-4 py-3">
+                                <div class="text-center border-bottom mb-4 py-2">
                                     <h5>Valores</h5>
                                     <p>Diversidad</p>
                                 </div>
@@ -118,24 +119,13 @@
                     </div>
                 </div>
             </section>
-            <section id="services" class="py-5 px-4">
-                <div class="border rounded p-5 bg-white">
-                    <div class="container text-center mb-4">
+            <section id="services" class="py-2 px-2 pb-4 bg-light">
+                <div class="rounded p-2 bg-white">
+                    <div class="text-center mb-4">
                         <h2>PERFIL PROFESIONAL</h2>
                         <hr>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div id="radar-chart" class="w-100 my-3"></div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="p-4">
-                                    <ul>
-                                        <li>lore impsum</li>
-                                        <li>dolor sit amet</li>
-                                        <li>consectetur adipisicing e</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="px-2">
+                            <canvas id="radar-chart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -272,28 +262,55 @@
             <p class="text-center text-body-secondary">© 2024 Cristian, Inc</p>
         </footer>
         <script>
-            var data = [{
-                type: 'scatterpolar',
-                r: [4, 3, 2, 4, 4],
-                theta: ['Conocimiento técnico', 'Experiencia', 'Habilidades blandas', 'Aprendizaje', 'Resultados'],
-                fill: 'toself',
-                name: 'Valores'
-            }];
-
-            var layout = {
-                polar: {
-                    radialaxis: {
-                        visible: true,
-                        range: [0, 5]
+            function createRadarChart(labels, data) {
+                const ctx = document.getElementById('radar-chart').getContext('2d');
+                const radarChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Mi evaluación',
+                            data: data,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 2,
+                            pointStyle: 'circle'
+                        },
+                        {
+                            label: 'Promedio',
+                            data: [4, 4, 4, 4, 4],
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 2,
+                            pointStyle: 'circle'
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        responsive: true,
+                        scale: {
+                            r: {
+                                min: 0,
+                                max: 5,
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    usePointStyle: true
+                                }
+                            }
+                        }
                     }
-                },
-                showlegend: false,
-                autosize: true
-            };
+                });
+            }
 
-            var config = { responsive: true };
-
-            Plotly.newPlot('radar-chart', data, layout, config);
+            const labels = ['Conocimiento Técnico', 'Experiencia', 'Habilidades', 'Aprendizaje', 'Resultados'];
+            const data = [3, 2, 4, 5, 3];
+            createRadarChart(labels, data);
         </script>
         <script src="public/js/plugins/bootstrap/bootstrap.min.js"></script>
         <script src="public/js/plugins/bootstrap/popper.min.js"></script>

@@ -58,8 +58,6 @@ h3 {
 
 h4,
 h5 {
-    letter-spacing: 2px;
-    text-transform: uppercase;
     color: var(--ct-color-secondary) !important;
 }
 
@@ -69,6 +67,11 @@ ul>li {
 
 .navbar-collapse {
     transition: 0.5s ease !important;
+}
+canvas {
+    width: 100%;  /* Ocupa el 100% del contenedor padre */
+    max-width: 600px;  /* Límite máximo para pantallas más grandes */
+    height: auto;  /* Ajusta la altura automáticamente */
 }
 
 #main-wrapper {
@@ -150,7 +153,6 @@ main {
 }
 
 .hero img {
-    max-width: 30rem;
     position: relative;
     animation: hop 2s linear;
     animation-iteration-count: 5;
